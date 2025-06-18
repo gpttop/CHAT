@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Bitcoin</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Investimento em Bitcoin</h1>
+        <div class="inputs">
+            <label>
+                Valor Mensal (R$):
+                <input type="number" id="monthly" min="0" value="0">
+            </label>
+            <label>
+                Compra Anual (R$):
+                <input type="number" id="yearly" min="0" value="0">
+            </label>
+            <label>
+                Período (anos):
+                <input type="number" id="years" min="1" value="1">
+            </label>
+            <label>
+                Cenário de Valorização (% ao ano):
+                <select id="scenario">
+                    <option value="0.8">Otimista (80%)</option>
+                    <option value="0.3">Moderado (30%)</option>
+                    <option value="-0.2">Pessimista (-20%)</option>
+                    <option value="custom">Customizado</option>
+                </select>
+            </label>
+            <label id="customRateLabel" style="display:none;">
+                Taxa Customizada (%):
+                <input type="number" id="customRate" step="0.01" value="0">
+            </label>
+            <label>
+                Cotação Inicial BTC (R$):
+                <input type="number" id="initialPrice" min="0" value="0">
+            </label>
+            <button id="calculate">Calcular</button>
+            <button id="clear">Limpar</button>
+        </div>
+        <div class="results" style="display:none;">
+            <p id="totalBTC"></p>
+            <p id="totalInvested"></p>
+            <p id="finalValue"></p>
+        </div>
+        <canvas id="chart" width="400" height="200"></canvas>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
